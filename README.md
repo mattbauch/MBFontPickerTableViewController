@@ -14,7 +14,8 @@ Version History
 ===============
 
 0.1 initial version  
-0.2 selected font is highlighted
+0.2 selected font is highlighted. moved into its own repository
+
 
 
 TODO
