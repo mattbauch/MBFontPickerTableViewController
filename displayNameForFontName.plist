@@ -1,0 +1,587 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Academy Engraved LET</key>
+	<dict>
+		<key>AcademyEngravedLetPlain</key>
+		<string>Academy Engraved LET</string>
+	</dict>
+	<key>American Typewriter</key>
+	<dict>
+		<key>AmericanTypewriter</key>
+		<string>American Typewriter</string>
+		<key>AmericanTypewriter-Bold</key>
+		<string>American Typewriter Bold</string>
+		<key>AmericanTypewriter-Condensed</key>
+		<string>American Typewriter Condensed</string>
+		<key>AmericanTypewriter-CondensedBold</key>
+		<string>American Typewriter Condensed Bold</string>
+		<key>AmericanTypewriter-CondensedLight</key>
+		<string>American Typewriter Condensed Light</string>
+		<key>AmericanTypewriter-Light</key>
+		<string>American Typewriter Light</string>
+	</dict>
+	<key>Apple Color Emoji</key>
+	<dict>
+		<key>AppleColorEmoji</key>
+		<string>Apple Color Emoji</string>
+	</dict>
+	<key>Apple SD Gothic Neo</key>
+	<dict>
+		<key>AppleSDGothicNeo-Bold</key>
+		<string>Apple SD Gothic Neo Bold</string>
+		<key>AppleSDGothicNeo-Medium</key>
+		<string>Apple SD Gothic Neo Medium</string>
+	</dict>
+	<key>Arial</key>
+	<dict>
+		<key>Arial-BoldItalicMT</key>
+		<string>Arial Bold Italic</string>
+		<key>Arial-BoldMT</key>
+		<string>Arial Bold</string>
+		<key>Arial-ItalicMT</key>
+		<string>Arial Italic</string>
+		<key>ArialMT</key>
+		<string>Arial</string>
+	</dict>
+	<key>Arial Hebrew</key>
+	<dict>
+		<key>ArialHebrew</key>
+		<string>Arial Hebrew</string>
+		<key>ArialHebrew-Bold</key>
+		<string>Arial Hebrew Bold</string>
+	</dict>
+	<key>Arial Rounded MT Bold</key>
+	<dict>
+		<key>ArialRoundedMTBold</key>
+		<string>Arial Rounded MT Bold</string>
+	</dict>
+	<key>Avenir</key>
+	<dict>
+		<key>Avenir-Black</key>
+		<string>Avenir Black</string>
+		<key>Avenir-BlackOblique</key>
+		<string>Avenir Black Oblique</string>
+		<key>Avenir-Book</key>
+		<string>Avenir Book</string>
+		<key>Avenir-BookOblique</key>
+		<string>Avenir Book Oblique</string>
+		<key>Avenir-Heavy</key>
+		<string>Avenir Heavy</string>
+		<key>Avenir-HeavyOblique</key>
+		<string>Avenir Heavy Oblique</string>
+		<key>Avenir-Light</key>
+		<string>Avenir Light</string>
+		<key>Avenir-LightOblique</key>
+		<string>Avenir Light Oblique</string>
+		<key>Avenir-Medium</key>
+		<string>Avenir Medium</string>
+		<key>Avenir-MediumOblique</key>
+		<string>Avenir Medium Oblique</string>
+		<key>Avenir-Oblique</key>
+		<string>Avenir Oblique</string>
+		<key>Avenir-Roman</key>
+		<string>Avenir Roman</string>
+	</dict>
+	<key>Avenir Next</key>
+	<dict>
+		<key>AvenirNext-Bold</key>
+		<string>Avenir Next Bold</string>
+		<key>AvenirNext-BoldItalic</key>
+		<string>Avenir Next Bold Italic</string>
+		<key>AvenirNext-DemiBold</key>
+		<string>Avenir Next Demi Bold</string>
+		<key>AvenirNext-DemiBoldItalic</key>
+		<string>Avenir Next Demi Bold Italic</string>
+		<key>AvenirNext-Heavy</key>
+		<string>Avenir Next Heavy</string>
+		<key>AvenirNext-HeavyItalic</key>
+		<string>Avenir Next Heavy Italic</string>
+		<key>AvenirNext-Italic</key>
+		<string>Avenir Next Italic</string>
+		<key>AvenirNext-Medium</key>
+		<string>Avenir Next Medium</string>
+		<key>AvenirNext-MediumItalic</key>
+		<string>Avenir Next Medium Italic</string>
+		<key>AvenirNext-Regular</key>
+		<string>Avenir Next Regular</string>
+		<key>AvenirNext-UltraLight</key>
+		<string>AvenirNext-UltraLight</string>
+		<key>AvenirNext-UltraLightItalic</key>
+		<string>Avenir Next Ultra Light Italic</string>
+	</dict>
+	<key>Avenir Next Condensed</key>
+	<dict>
+		<key>AvenirNextCondensed-Bold</key>
+		<string>Avenir Next Condensed Bold</string>
+		<key>AvenirNextCondensed-BoldItalic</key>
+		<string>Avenir Next Condensed Bold Italic</string>
+		<key>AvenirNextCondensed-DemiBold</key>
+		<string>Avenir Next Condensed Demi Bold</string>
+		<key>AvenirNextCondensed-DemiBoldItalic</key>
+		<string>Avenir Next Condensed Demi Bold Italic</string>
+		<key>AvenirNextCondensed-Heavy</key>
+		<string>Avenir Next Condensed Heavy</string>
+		<key>AvenirNextCondensed-HeavyItalic</key>
+		<string>Avenir Next Condensed Heavy Italic</string>
+		<key>AvenirNextCondensed-Italic</key>
+		<string>Avenir Next Condensed Italic</string>
+		<key>AvenirNextCondensed-Medium</key>
+		<string>Avenir Next Condensed Medium</string>
+		<key>AvenirNextCondensed-MediumItalic</key>
+		<string>Avenir Next Medium Condensed Italic</string>
+		<key>AvenirNextCondensed-Regular</key>
+		<string>Avenir Next Condensed Regular</string>
+		<key>AvenirNextCondensed-UltraLight</key>
+		<string>Avenir Next Condensed Ultra Light</string>
+		<key>AvenirNextCondensed-UltraLightItalic</key>
+		<string>Avenir Next Condensed Ultra Light Italic</string>
+	</dict>
+	<key>Bangla Sangam MN</key>
+	<dict>
+		<key>BanglaSangamMN</key>
+		<string>Bangla Sangam MN</string>
+		<key>BanglaSangamMN-Bold</key>
+		<string>Bangla Sangam MN Bold</string>
+	</dict>
+	<key>Baskerville</key>
+	<dict>
+		<key>Baskerville</key>
+		<string>Baskerville</string>
+		<key>Baskerville-Bold</key>
+		<string>Baskerville Bold</string>
+		<key>Baskerville-BoldItalic</key>
+		<string>Baskerville Bold Italic</string>
+		<key>Baskerville-Italic</key>
+		<string>Baskerville Italic</string>
+		<key>Baskerville-SemiBold</key>
+		<string>Baskerville SemiBold</string>
+		<key>Baskerville-SemiBoldItalic</key>
+		<string>Baskerville SemiBold Italic</string>
+	</dict>
+	<key>Bodoni 72</key>
+	<dict>
+		<key>BodoniSvtyTwoITCTT-Bold</key>
+		<string>Bodoni 72 Bold</string>
+		<key>BodoniSvtyTwoITCTT-Book</key>
+		<string>Bodoni 72 Book</string>
+		<key>BodoniSvtyTwoITCTT-BookIta</key>
+		<string>Bodoni 72 Book Italic</string>
+	</dict>
+	<key>Bodoni 72 Oldstyle</key>
+	<dict>
+		<key>BodoniSvtyTwoOSITCTT-Bold</key>
+		<string>Bodoni 72  Oldstyle Bold</string>
+		<key>BodoniSvtyTwoOSITCTT-Book</key>
+		<string>Bodoni 72  Oldstyle Book</string>
+		<key>BodoniSvtyTwoOSITCTT-BookIt</key>
+		<string>Bodoni 72  Oldstyle Book Italic</string>
+	</dict>
+	<key>Bodoni 72 Smallcaps</key>
+	<dict>
+		<key>BodoniSvtyTwoSCITCTT-Book</key>
+		<string>Bodoni 72 Smallcaps</string>
+	</dict>
+	<key>Bodoni Ornaments</key>
+	<dict>
+		<key>BodoniOrnamentsITCTT</key>
+		<string>Bodoni Ornaments</string>
+	</dict>
+	<key>Bradley Hand</key>
+	<dict>
+		<key>BradleyHandITCTT-Bold</key>
+		<string>Bradley Hand</string>
+	</dict>
+	<key>Chalkboard SE</key>
+	<dict>
+		<key>ChalkboardSE-Bold</key>
+		<string>Chalkboard SE Bold</string>
+		<key>ChalkboardSE-Light</key>
+		<string>Chalkboard SE Light</string>
+		<key>ChalkboardSE-Regular</key>
+		<string>Chalkboard SE Regular</string>
+	</dict>
+	<key>Chalkduster</key>
+	<dict>
+		<key>Chalkduster</key>
+		<string>Chalkduster</string>
+	</dict>
+	<key>Cochin</key>
+	<dict>
+		<key>Cochin</key>
+		<string>Cochin</string>
+		<key>Cochin-Bold</key>
+		<string>Cochin Bold</string>
+		<key>Cochin-BoldItalic</key>
+		<string>Cochin Bold Italic</string>
+		<key>Cochin-Italic</key>
+		<string>Cochin Italic</string>
+	</dict>
+	<key>Copperplate</key>
+	<dict>
+		<key>Copperplate</key>
+		<string>Copperplate</string>
+		<key>Copperplate-Bold</key>
+		<string>Copperplate Bold</string>
+		<key>Copperplate-Light</key>
+		<string>Copperplate Light</string>
+	</dict>
+	<key>Courier</key>
+	<dict>
+		<key>Courier</key>
+		<string>Courier</string>
+		<key>Courier-Bold</key>
+		<string>Courier Bold</string>
+		<key>Courier-BoldOblique</key>
+		<string>Courier Bold Oblique</string>
+		<key>Courier-Oblique</key>
+		<string>Courier Oblique</string>
+	</dict>
+	<key>Courier New</key>
+	<dict>
+		<key>CourierNewPS-BoldItalicMT</key>
+		<string>Courier New Bold Italic</string>
+		<key>CourierNewPS-BoldMT</key>
+		<string>Courier New Bold</string>
+		<key>CourierNewPS-ItalicMT</key>
+		<string>Courier New Italic</string>
+		<key>CourierNewPSMT</key>
+		<string>Courier New</string>
+	</dict>
+	<key>Devanagari Sangam MN</key>
+	<dict>
+		<key>DevanagariSangamMN</key>
+		<string>Devanagari Sangam MN</string>
+		<key>DevanagariSangamMN-Bold</key>
+		<string>Devanagari Sangam MN Bold</string>
+	</dict>
+	<key>Didot</key>
+	<dict>
+		<key>Didot</key>
+		<string>Didot</string>
+		<key>Didot-Bold</key>
+		<string>Didot Bold</string>
+		<key>Didot-Italic</key>
+		<string>Didot Italic</string>
+	</dict>
+	<key>Euphemia UCAS</key>
+	<dict>
+		<key>EuphemiaUCAS</key>
+		<string>Euphemia UCAS</string>
+		<key>EuphemiaUCAS-Bold</key>
+		<string>Euphemia UCAS Bold</string>
+		<key>EuphemiaUCAS-Italic</key>
+		<string>Euphemia UCAS Italic</string>
+	</dict>
+	<key>Futura</key>
+	<dict>
+		<key>Futura-CondensedExtraBold</key>
+		<string>Futura Condensed ExtraBold</string>
+		<key>Futura-CondensedMedium</key>
+		<string>Futura Condensed Medium</string>
+		<key>Futura-Medium</key>
+		<string>Futura Medium</string>
+		<key>Futura-MediumItalic</key>
+		<string>Futura Medium Italic</string>
+	</dict>
+	<key>Geeza Pro</key>
+	<dict>
+		<key>GeezaPro</key>
+		<string>Geeza Pro</string>
+		<key>GeezaPro-Bold</key>
+		<string>Geeza Pro Bold</string>
+	</dict>
+	<key>Georgia</key>
+	<dict>
+		<key>Georgia</key>
+		<string>Georgia</string>
+		<key>Georgia-Bold</key>
+		<string>Georgia Bold</string>
+		<key>Georgia-BoldItalic</key>
+		<string>Georgia Bold Italic</string>
+		<key>Georgia-Italic</key>
+		<string>Georgia Italic</string>
+	</dict>
+	<key>Gill Sans</key>
+	<dict>
+		<key>GillSans</key>
+		<string>Gill Sans</string>
+		<key>GillSans-Bold</key>
+		<string>Gill Sans Bold</string>
+		<key>GillSans-BoldItalic</key>
+		<string>Gill Sans Bold Italic</string>
+		<key>GillSans-Italic</key>
+		<string>Gill Sans Italic</string>
+		<key>GillSans-Light</key>
+		<string>Gill Sans Light</string>
+		<key>GillSans-LightItalic</key>
+		<string>Gill Sans Light Italic</string>
+	</dict>
+	<key>Gujarati Sangam MN</key>
+	<dict>
+		<key>GujaratiSangamMN</key>
+		<string>Gujarati Sangam MN</string>
+		<key>GujaratiSangamMN-Bold</key>
+		<string>Gujarati Sangam MN Bold</string>
+	</dict>
+	<key>Gurmukhi MN</key>
+	<dict>
+		<key>GurmukhiMN</key>
+		<string>Gurmukhi MN</string>
+		<key>GurmukhiMN-Bold</key>
+		<string>Gurmukhi MN Bold</string>
+	</dict>
+	<key>Heiti SC</key>
+	<dict>
+		<key>STHeitiSC-Light</key>
+		<string>Heiti SC Light</string>
+		<key>STHeitiSC-Medium</key>
+		<string>Heiti SC Medium</string>
+	</dict>
+	<key>Heiti TC</key>
+	<dict>
+		<key>STHeitiTC-Light</key>
+		<string>Heiti TC Light</string>
+		<key>STHeitiTC-Medium</key>
+		<string>Heiti TC Medium</string>
+	</dict>
+	<key>Helvetica</key>
+	<dict>
+		<key>Helvetica</key>
+		<string>Helvetica</string>
+		<key>Helvetica-Bold</key>
+		<string>Helvetica Bold</string>
+		<key>Helvetica-BoldOblique</key>
+		<string>Helvetica Bold Oblique</string>
+		<key>Helvetica-Light</key>
+		<string>Helvetica Light</string>
+		<key>Helvetica-LightOblique</key>
+		<string>Helvetica Light Oblique</string>
+		<key>Helvetica-Oblique</key>
+		<string>Helvetica Oblique</string>
+	</dict>
+	<key>Helvetica Neue</key>
+	<dict>
+		<key>HelveticaNeue</key>
+		<string>Helvetica Neue</string>
+		<key>HelveticaNeue-Bold</key>
+		<string>Helvetica Neue Bold</string>
+		<key>HelveticaNeue-BoldItalic</key>
+		<string>Helvetica Neue Bold Italic</string>
+		<key>HelveticaNeue-CondensedBlack</key>
+		<string>Helvetica Neue Condensed Black</string>
+		<key>HelveticaNeue-CondensedBold</key>
+		<string>Helvetica Neue Condensed Bold</string>
+		<key>HelveticaNeue-Italic</key>
+		<string>Helvetica Neue Italic</string>
+		<key>HelveticaNeue-Light</key>
+		<string>Helvetica Neue Light</string>
+		<key>HelveticaNeue-LightItalic</key>
+		<string>Helvetica Neue Light Italic</string>
+		<key>HelveticaNeue-Medium</key>
+		<string>Helvetica Neue Medium</string>
+		<key>HelveticaNeue-UltraLight</key>
+		<string>Helvetica Neue UltraLight</string>
+		<key>HelveticaNeue-UltraLightItalic</key>
+		<string>Helvetica Neue UltraLight Italic</string>
+	</dict>
+	<key>Hiragino Kaku Gothic ProN</key>
+	<dict>
+		<key>HiraKakuProN-W3</key>
+		<string>Hiragino Kaku Gothic ProN W3</string>
+		<key>HiraKakuProN-W6</key>
+		<string>Hiragino Kaku Gothic ProN W6</string>
+	</dict>
+	<key>Hiragino Mincho ProN</key>
+	<dict>
+		<key>HiraMinProN-W3</key>
+		<string>Hiragino Mincho ProN W3</string>
+		<key>HiraMinProN-W6</key>
+		<string>Hiragino Mincho ProN W6</string>
+	</dict>
+	<key>Hoefler Text</key>
+	<dict>
+		<key>HoeflerText-Black</key>
+		<string>Hoefler Text Black</string>
+		<key>HoeflerText-BlackItalic</key>
+		<string>Hoefler Text Black Italic</string>
+		<key>HoeflerText-Italic</key>
+		<string>Hoefler Text Italic</string>
+		<key>HoeflerText-Regular</key>
+		<string>Hoefler Text</string>
+	</dict>
+	<key>Kailasa</key>
+	<dict>
+		<key>Kailasa</key>
+		<string>Kailasa Regular</string>
+		<key>Kailasa-Bold</key>
+		<string>Kailasa Bold</string>
+	</dict>
+	<key>Kannada Sangam MN</key>
+	<dict>
+		<key>KannadaSangamMN</key>
+		<string>Kannada Sangam MN</string>
+		<key>KannadaSangamMN-Bold</key>
+		<string>Kannada Sangam MN Bold</string>
+	</dict>
+	<key>Malayalam Sangam MN</key>
+	<dict>
+		<key>MalayalamSangamMN</key>
+		<string>Malayalam Sangam MN</string>
+		<key>MalayalamSangamMN-Bold</key>
+		<string>Malayalam Sangam MN Bold</string>
+	</dict>
+	<key>Marion</key>
+	<dict>
+		<key>Marion-Bold</key>
+		<string>Marion Bold</string>
+		<key>Marion-Italic</key>
+		<string>Marion Italic</string>
+		<key>Marion-Regular</key>
+		<string>Marion Regular</string>
+	</dict>
+	<key>Marker Felt</key>
+	<dict>
+		<key>MarkerFelt-Thin</key>
+		<string>Marker Felt Thin</string>
+		<key>MarkerFelt-Wide</key>
+		<string>Marker Felt Wide</string>
+	</dict>
+	<key>Noteworthy</key>
+	<dict>
+		<key>Noteworthy-Bold</key>
+		<string>Noteworthy Bold</string>
+		<key>Noteworthy-Light</key>
+		<string>Noteworthy Light</string>
+	</dict>
+	<key>Optima</key>
+	<dict>
+		<key>Optima-Bold</key>
+		<string>Optima Bold</string>
+		<key>Optima-BoldItalic</key>
+		<string>Optima Bold Italic</string>
+		<key>Optima-ExtraBlack</key>
+		<string>Optima ExtraBlack</string>
+		<key>Optima-Italic</key>
+		<string>Optima Italic</string>
+		<key>Optima-Regular</key>
+		<string>Optima Regular</string>
+	</dict>
+	<key>Oriya Sangam MN</key>
+	<dict>
+		<key>OriyaSangamMN</key>
+		<string>Oriya Sangam MN</string>
+		<key>OriyaSangamMN-Bold</key>
+		<string>Oriya Sangam MN Bold</string>
+	</dict>
+	<key>Palatino</key>
+	<dict>
+		<key>Palatino-Bold</key>
+		<string>Palatino Bold</string>
+		<key>Palatino-BoldItalic</key>
+		<string>Palatino Bold Italic</string>
+		<key>Palatino-Italic</key>
+		<string>Palatino Italic</string>
+		<key>Palatino-Roman</key>
+		<string>Palatino</string>
+	</dict>
+	<key>Papyrus</key>
+	<dict>
+		<key>Papyrus</key>
+		<string>Papyrus</string>
+		<key>Papyrus-Condensed</key>
+		<string>Papyrus Condensed</string>
+	</dict>
+	<key>Party LET</key>
+	<dict>
+		<key>PartyLetPlain</key>
+		<string>Party LET</string>
+	</dict>
+	<key>Sinhala Sangam MN</key>
+	<dict>
+		<key>SinhalaSangamMN</key>
+		<string>Sinhala Sangam MN</string>
+		<key>SinhalaSangamMN-Bold</key>
+		<string>Sinhala Sangam MN Bold</string>
+	</dict>
+	<key>Snell Roundhand</key>
+	<dict>
+		<key>SnellRoundhand</key>
+		<string>SnellRoundhand</string>
+		<key>SnellRoundhand-Black</key>
+		<string>SnellRoundhand Black</string>
+		<key>SnellRoundhand-Bold</key>
+		<string>SnellRoundhand Bold</string>
+	</dict>
+	<key>Symbol</key>
+	<dict>
+		<key>Symbol</key>
+		<string>Symbol</string>
+	</dict>
+	<key>Tamil Sangam MN</key>
+	<dict>
+		<key>TamilSangamMN</key>
+		<string>Tamil Sangam MN</string>
+		<key>TamilSangamMN-Bold</key>
+		<string>Tamil Sangam MN Bold</string>
+	</dict>
+	<key>Telugu Sangam MN</key>
+	<dict>
+		<key>TeluguSangamMN</key>
+		<string>Telugu Sangam MN</string>
+		<key>TeluguSangamMN-Bold</key>
+		<string>Telugu Sangam MN Bold</string>
+	</dict>
+	<key>Thonburi</key>
+	<dict>
+		<key>Thonburi</key>
+		<string>Thonburi</string>
+		<key>Thonburi-Bold</key>
+		<string>Thonburi Bold</string>
+	</dict>
+	<key>Times New Roman</key>
+	<dict>
+		<key>TimesNewRomanPS-BoldItalicMT</key>
+		<string>Times New Roman Bold Italic</string>
+		<key>TimesNewRomanPS-BoldMT</key>
+		<string>Times New Roman Bold</string>
+		<key>TimesNewRomanPS-ItalicMT</key>
+		<string>Times New Roman Italic</string>
+		<key>TimesNewRomanPSMT</key>
+		<string>Times New Roman</string>
+	</dict>
+	<key>Trebuchet MS</key>
+	<dict>
+		<key>Trebuchet-BoldItalic</key>
+		<string>Trebuchet MS Bold Italic</string>
+		<key>TrebuchetMS</key>
+		<string>Trebuchet MS</string>
+		<key>TrebuchetMS-Bold</key>
+		<string>Trebuchet MS Bold</string>
+		<key>TrebuchetMS-Italic</key>
+		<string>Trebuchet MS Italic</string>
+	</dict>
+	<key>Verdana</key>
+	<dict>
+		<key>Verdana</key>
+		<string>Verdana</string>
+		<key>Verdana-Bold</key>
+		<string>Verdana Bold</string>
+		<key>Verdana-BoldItalic</key>
+		<string>Verdana Bold Italic</string>
+		<key>Verdana-Italic</key>
+		<string>Verdana Italic</string>
+	</dict>
+	<key>Zapf Dingbats</key>
+	<dict>
+		<key>ZapfDingbatsITC</key>
+		<string>Zapf Dingbats</string>
+	</dict>
+	<key>Zapfino</key>
+	<dict>
+		<key>Zapfino</key>
+		<string>Zapfino</string>
+	</dict>
+</dict>
+</plist>
