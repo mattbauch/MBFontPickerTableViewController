@@ -3,6 +3,9 @@ MBFontPickerTableViewController
 
 UITableViewController subclassed which can be used to select a UIFont. This class displays the user-friendly name of the font.
 
+Font names include all fonts available on iOS 6.1
+
+
 
 How To
 ======
@@ -14,8 +17,8 @@ Version History
 ===============
 
 0.1 initial version  
-0.2 selected font is highlighted. moved into its own repository
-
+0.2 selected font is highlighted. moved into its own repository 
+0.2.1 License changed to WTFPL
 
 
 TODO
