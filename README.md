@@ -17,7 +17,7 @@ Version History
 ===============
 
 0.1 initial version  
-0.2 selected font is highlighted. moved into its own repository 
+0.2 selected font is highlighted. moved into its own repository  
 0.2.1 License changed to WTFPL
 
 
