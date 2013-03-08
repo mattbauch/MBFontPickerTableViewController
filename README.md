@@ -21,7 +21,8 @@ Version History
 0.2.1 License changed to WTFPL  
 0.2.2 FIX: Use self.contentSizeForViewInPopover for sub font picker that is pushed with the accessory button  
 0.3.0 Allow to set dictionaries for our custom fonts  
-0.3.1 FIX: Only scroll to selected font when this was explicitly requested. 
+0.3.1 FIX: Only scroll to selected font when this was explicitly requested.  
+0.3.2 Feature: We can now get the display name through a class method when supplying a custom font list  
 
 TODO
 ====

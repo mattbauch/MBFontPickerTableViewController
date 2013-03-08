@@ -222,22 +222,37 @@
 
 #pragma mark - Font Names
 
-- (NSDictionary *)displayNamesDictionary {
-    if (!_displayNamesDictionary) {
-        NSMutableDictionary *tempDisplayNames = [NSMutableDictionary dictionaryWithCapacity:200];
++ (NSString *)displayNameForFontName:(NSString *)fontName customFontList:(NSDictionary *)customFontList {
+    NSString *displayName = [self stockDisplayNamesDictionary][fontName];
+    if (!displayName) {
+        displayName = customFontList[fontName];
+    }
+    return displayName;
+}
 
++ (NSDictionary *)stockDisplayNamesDictionary {
+    static NSDictionary *stockDisplayNamesDictionary;
+    if (!stockDisplayNamesDictionary) {
         NSString *path = [[NSBundle mainBundle] pathForResource:@"displayNameForFontName" ofType:@"plist"];
         if (path) {
             NSDictionary *displayNamesOnDisc = [NSDictionary dictionaryWithContentsOfFile:path];
             
-            
+            NSMutableDictionary *tempDisplayNames = [NSMutableDictionary dictionaryWithCapacity:200];
             for (NSString *fontFamilyName in displayNamesOnDisc) {
                 NSDictionary *fontFamilyDictionary = displayNamesOnDisc[fontFamilyName];
                 for (NSString *fontName in fontFamilyDictionary) {
                     [tempDisplayNames setObject:fontFamilyDictionary[fontName] forKey:fontName];
                 }
-            }
+            }            
+            stockDisplayNamesDictionary = [tempDisplayNames copy];
         }
+    }
+    return stockDisplayNamesDictionary;
+}
+
+- (NSDictionary *)displayNamesDictionary {
+    if (!_displayNamesDictionary) {
+        NSMutableDictionary *tempDisplayNames = [[[self class] stockDisplayNamesDictionary] mutableCopy];
         if (self.customDisplayFontNames) {
             [tempDisplayNames addEntriesFromDictionary:self.customDisplayFontNames];
         }
