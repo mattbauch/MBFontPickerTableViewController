@@ -147,14 +147,38 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSString *fontName = nil;
+    NSString *fontFamilyName = nil;
+    NSIndexPath *oldIndexPath = nil;
     if (self.fontFamilyName) {
         fontName = self.fontNames[indexPath.row];
+        fontFamilyName = self.fontFamilyName;
+        NSInteger index = [self.fontNames indexOfObject:self.selectedFont];
+        if (index != NSNotFound) {
+            oldIndexPath = [NSIndexPath indexPathForRow:index inSection:0];
+        }
+        
+        MBFontPickerTableViewController *previousPicker = self.navigationController.viewControllers[[self.navigationController.viewControllers count]-2];
+        if ([previousPicker isKindOfClass:[MBFontPickerTableViewController class]]) {
+            previousPicker.selectedFontFamily = fontFamilyName;
+        }
     }
     else {
-        NSString *fontFamilyName = self.fontNames[indexPath.row];
+        fontFamilyName = self.fontNames[indexPath.row];
         fontName = [self defaultFontNameForFamilyName:fontFamilyName];
+        NSInteger index = [self.fontNames indexOfObject:self.selectedFontFamily];
+        if (index != NSNotFound) {
+            oldIndexPath = [NSIndexPath indexPathForRow:index inSection:0];
+        }
     }
-    [self.delegate fontPicker:self didSelectFontWithName:fontName];
+    self.selectedFont = fontName;
+    self.selectedFontFamily = fontFamilyName;
+    if (oldIndexPath) {
+        [self configureCell:[tableView cellForRowAtIndexPath:oldIndexPath] forRowAtIndexPath:oldIndexPath];
+    }
+    [self configureCell:[tableView cellForRowAtIndexPath:indexPath] forRowAtIndexPath:indexPath];
+    
+    [self.delegate fontPicker:self didSelectFontWithName:fontName];    
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 - (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath {
