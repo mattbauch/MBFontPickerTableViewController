@@ -155,6 +155,7 @@
     fontPicker.delegate = self.delegate;
     fontPicker.title = self.title;
     fontPicker.selectedFont = self.selectedFont;
+    fontPicker.contentSizeForViewInPopover = self.contentSizeForViewInPopover;
     [self.navigationController pushViewController:fontPicker animated:YES];
 }
 
