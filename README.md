@@ -20,7 +20,7 @@ Version History
 0.2 selected font is highlighted. moved into its own repository  
 0.2.1 License changed to WTFPL  
 0.2.2 FIX: Use self.contentSizeForViewInPopover for sub font picker that is pushed with the accessory button  
-0.3.0 Allow to set dictionaries for our custom fonts  
+0.3.0 Allow to set dictionaries for our custom fonts     
 
 
 TODO
