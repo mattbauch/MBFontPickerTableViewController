@@ -22,5 +22,5 @@
 
 @property (copy, nonatomic) NSString *selectedFont;
 
-+ (NSString *)displayNameForFontName:(NSString *)fontName;
+- (NSString *)displayNameForFontName:(NSString *)fontName;
 @end

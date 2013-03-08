@@ -13,7 +13,10 @@
 @property (strong, nonatomic) NSString *selectedFontFamily;
 @end
 
-@implementation MBFontPickerTableViewController
+@implementation MBFontPickerTableViewController {
+    NSDictionary *_displayNamesDictionary;
+    NSDictionary *_defaultFontsDictionary;
+}
 
 - (id)initWithStyle:(UITableViewStyle)style {
     self = [super initWithStyle:style];
@@ -88,7 +91,7 @@
     NSString *fontName = nil;
     if (self.fontFamilyName) {
         fontName = self.fontNames[indexPath.row];
-        NSString *displayName = [[self class] displayNameForFontName:fontName];
+        NSString *displayName = [self displayNameForFontName:fontName];
         if (!displayName) {
             // display name not found in plist. use font name
             displayName = fontName;
@@ -106,7 +109,7 @@
     }
     else {
         NSString *fontFamilyName = self.fontNames[indexPath.row];
-        NSString *defaultFontName = [[self class] defaultFontNameForFamilyName:fontFamilyName];
+        NSString *defaultFontName = [self defaultFontNameForFamilyName:fontFamilyName];
         if (!defaultFontName) {
             // default font not found in plist. use first font
             defaultFontName = [UIFont fontNamesForFamilyName:fontFamilyName][0];
@@ -142,7 +145,7 @@
     }
     else {
         NSString *fontFamilyName = self.fontNames[indexPath.row];
-        fontName = [[self class] defaultFontNameForFamilyName:fontFamilyName];
+        fontName = [self defaultFontNameForFamilyName:fontFamilyName];
     }
     [self.delegate fontPicker:self didSelectFontWithName:fontName];
 }
@@ -161,9 +164,8 @@
 
 #pragma mark - Font Names
 
-+ (NSDictionary *)displayNamesDictionary {
-    static NSDictionary *displayNamesDictionary;
-    if (!displayNamesDictionary) {
+- (NSDictionary *)displayNamesDictionary {
+    if (!_displayNamesDictionary) {
         NSString *path = [[NSBundle mainBundle] pathForResource:@"displayNameForFontName" ofType:@"plist"];
         if (path) {
             NSDictionary *displayNamesOnDisc = [NSDictionary dictionaryWithContentsOfFile:path];
@@ -175,32 +177,31 @@
                     [temp setObject:fontFamilyDictionary[fontName] forKey:fontName];
                 }
             }
-            displayNamesDictionary = [temp copy];
+            _displayNamesDictionary = [temp copy];
         }
     }
-    return displayNamesDictionary;
+    return _displayNamesDictionary;
 }
 
 
-+ (NSString *)displayNameForFontName:(NSString *)fontName {
+- (NSString *)displayNameForFontName:(NSString *)fontName {
     return [self.displayNamesDictionary objectForKey:fontName];;
 }
 
 #pragma mark - Main Font for Family Name
 
 
-+ (NSDictionary *)defaultFontsDictionary {
-    static NSDictionary *defaultFontsDictionary;
-    if (!defaultFontsDictionary) {
+- (NSDictionary *)defaultFontsDictionary {
+    if (!_defaultFontsDictionary) {
         NSString *path = [[NSBundle mainBundle] pathForResource:@"defaultFontForFamilyName" ofType:@"plist"];
         if (path) {
-            defaultFontsDictionary = [NSDictionary dictionaryWithContentsOfFile:path];
+            _defaultFontsDictionary = [NSDictionary dictionaryWithContentsOfFile:path];
         }
     }
-    return defaultFontsDictionary;
+    return _defaultFontsDictionary;
 }
 
-+ (NSString *)defaultFontNameForFamilyName:(NSString *)familyName {
+- (NSString *)defaultFontNameForFamilyName:(NSString *)familyName {
     return [self.defaultFontsDictionary objectForKey:familyName];
 }
 
