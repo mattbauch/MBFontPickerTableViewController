@@ -13,7 +13,10 @@
 @property (strong, nonatomic) NSString *selectedFontFamily;
 @end
 
-@implementation MBFontPickerTableViewController
+@implementation MBFontPickerTableViewController {
+    NSDictionary *_displayNamesDictionary;
+    NSDictionary *_defaultFontsDictionary;
+}
 
 - (id)initWithStyle:(UITableViewStyle)style {
     self = [super initWithStyle:style];
@@ -25,6 +28,28 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self.tableView reloadData];
+    
+    NSIndexPath *selectedIndexPath = nil;
+    if (self.fontFamilyName) {
+        NSInteger index = [self.fontNames indexOfObject:self.selectedFont];
+        if (index != NSNotFound) {
+            selectedIndexPath = [NSIndexPath indexPathForRow:index inSection:0];
+        }
+    }
+    else {
+        NSInteger index = [self.fontNames indexOfObject:self.selectedFontFamily];
+        if (index != NSNotFound) {
+            selectedIndexPath = [NSIndexPath indexPathForRow:index inSection:0];
+        }
+    }
+    if (selectedIndexPath) {
+        [self.tableView scrollToRowAtIndexPath:selectedIndexPath atScrollPosition:UITableViewScrollPositionMiddle animated:animated];
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -54,7 +79,6 @@
             break;
         }
     }
-    [self.tableView reloadData];
 }
 
 #pragma mark - Table view data source
@@ -67,28 +91,14 @@
     return [self.fontNames count];
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-        
-        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(10, 14, 14, 14)];
-        imageView.tag = 2001;
-        [cell.contentView addSubview:imageView];
-        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(34, 0, 276, 43)];
-        label.tag = 2002;
-        label.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
-        [cell.contentView addSubview:label];
-    }
+- (void)configureCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
     UIImageView *imageView = (UIImageView *)[cell.contentView viewWithTag:2001];
     UILabel *label = (UILabel *)[cell.contentView viewWithTag:2002];
     
     NSString *fontName = nil;
     if (self.fontFamilyName) {
         fontName = self.fontNames[indexPath.row];
-        NSString *displayName = [[self class] displayNameForFontName:fontName];
+        NSString *displayName = [self displayNameForFontName:fontName];
         if (!displayName) {
             // display name not found in plist. use font name
             displayName = fontName;
@@ -106,7 +116,7 @@
     }
     else {
         NSString *fontFamilyName = self.fontNames[indexPath.row];
-        NSString *defaultFontName = [[self class] defaultFontNameForFamilyName:fontFamilyName];
+        NSString *defaultFontName = [self defaultFontNameForFamilyName:fontFamilyName];
         if (!defaultFontName) {
             // default font not found in plist. use first font
             defaultFontName = [UIFont fontNamesForFamilyName:fontFamilyName][0];
@@ -129,6 +139,23 @@
             imageView.image = nil;
         }
     }
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *CellIdentifier = @"Cell";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    if (!cell) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(10, 14, 14, 14)];
+        imageView.tag = 2001;
+        [cell.contentView addSubview:imageView];
+        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(34, 0, 276, 43)];
+        label.tag = 2002;
+        label.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
+        [cell.contentView addSubview:label];
+    }
+    [self configureCell:cell forRowAtIndexPath:indexPath];
     return cell;
 }
 
@@ -137,14 +164,42 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSString *fontName = nil;
+    NSString *fontFamilyName = nil;
+    NSIndexPath *oldIndexPath = nil;
     if (self.fontFamilyName) {
         fontName = self.fontNames[indexPath.row];
+        fontFamilyName = self.fontFamilyName;
+        NSInteger index = [self.fontNames indexOfObject:self.selectedFont];
+        if (index != NSNotFound) {
+            oldIndexPath = [NSIndexPath indexPathForRow:index inSection:0];
+        }
+        
+        MBFontPickerTableViewController *previousPicker = self.navigationController.viewControllers[[self.navigationController.viewControllers count]-2];
+        if ([previousPicker isKindOfClass:[MBFontPickerTableViewController class]]) {
+            previousPicker.selectedFontFamily = fontFamilyName;
+        }
     }
     else {
-        NSString *fontFamilyName = self.fontNames[indexPath.row];
-        fontName = [[self class] defaultFontNameForFamilyName:fontFamilyName];
+        fontFamilyName = self.fontNames[indexPath.row];
+        fontName = [self defaultFontNameForFamilyName:fontFamilyName];
+        if (!fontName) {
+            // if there is no default font just use the first font that UIFont gives us
+            fontName = [UIFont fontNamesForFamilyName:fontFamilyName][0];
+        }
+        NSInteger index = [self.fontNames indexOfObject:self.selectedFontFamily];
+        if (index != NSNotFound) {
+            oldIndexPath = [NSIndexPath indexPathForRow:index inSection:0];
+        }
     }
-    [self.delegate fontPicker:self didSelectFontWithName:fontName];
+    self.selectedFont = fontName;
+    self.selectedFontFamily = fontFamilyName;
+    if (oldIndexPath) {
+        [self configureCell:[tableView cellForRowAtIndexPath:oldIndexPath] forRowAtIndexPath:oldIndexPath];
+    }
+    [self configureCell:[tableView cellForRowAtIndexPath:indexPath] forRowAtIndexPath:indexPath];
+    
+    [self.delegate fontPicker:self didSelectFontWithName:fontName];    
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 - (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath {
@@ -155,53 +210,76 @@
     fontPicker.delegate = self.delegate;
     fontPicker.title = self.title;
     fontPicker.selectedFont = self.selectedFont;
+    fontPicker.customDefaultFontNames = self.customDefaultFontNames;
+    fontPicker.customDisplayFontNames = self.customDisplayFontNames;
+    
     fontPicker.contentSizeForViewInPopover = self.contentSizeForViewInPopover;
     [self.navigationController pushViewController:fontPicker animated:YES];
 }
 
 #pragma mark - Font Names
 
-+ (NSDictionary *)displayNamesDictionary {
-    static NSDictionary *displayNamesDictionary;
-    if (!displayNamesDictionary) {
+- (NSDictionary *)displayNamesDictionary {
+    if (!_displayNamesDictionary) {
+        NSMutableDictionary *tempDisplayNames = [NSMutableDictionary dictionaryWithCapacity:200];
+
         NSString *path = [[NSBundle mainBundle] pathForResource:@"displayNameForFontName" ofType:@"plist"];
         if (path) {
             NSDictionary *displayNamesOnDisc = [NSDictionary dictionaryWithContentsOfFile:path];
             
-            NSMutableDictionary *temp = [NSMutableDictionary dictionaryWithCapacity:200];
+            
             for (NSString *fontFamilyName in displayNamesOnDisc) {
                 NSDictionary *fontFamilyDictionary = displayNamesOnDisc[fontFamilyName];
                 for (NSString *fontName in fontFamilyDictionary) {
-                    [temp setObject:fontFamilyDictionary[fontName] forKey:fontName];
+                    [tempDisplayNames setObject:fontFamilyDictionary[fontName] forKey:fontName];
                 }
             }
-            displayNamesDictionary = [temp copy];
         }
+        if (self.customDisplayFontNames) {
+            [tempDisplayNames addEntriesFromDictionary:self.customDisplayFontNames];
+        }
+        _displayNamesDictionary = [tempDisplayNames copy];
     }
-    return displayNamesDictionary;
+    return _displayNamesDictionary;
 }
 
-
-+ (NSString *)displayNameForFontName:(NSString *)fontName {
+- (NSString *)displayNameForFontName:(NSString *)fontName {
     return [self.displayNamesDictionary objectForKey:fontName];;
+}
+
+- (void)setCustomDisplayFontNames:(NSDictionary *)customDisplayFontNames {
+    _displayNamesDictionary = nil;
+    _customDisplayFontNames = customDisplayFontNames;
+    [self.tableView reloadData];
 }
 
 #pragma mark - Main Font for Family Name
 
 
-+ (NSDictionary *)defaultFontsDictionary {
-    static NSDictionary *defaultFontsDictionary;
-    if (!defaultFontsDictionary) {
+- (NSDictionary *)defaultFontsDictionary {
+    if (!_defaultFontsDictionary) {
+        NSMutableDictionary *tempDefaultFonts = [NSMutableDictionary dictionaryWithCapacity:100];
+        
         NSString *path = [[NSBundle mainBundle] pathForResource:@"defaultFontForFamilyName" ofType:@"plist"];
         if (path) {
-            defaultFontsDictionary = [NSDictionary dictionaryWithContentsOfFile:path];
+            tempDefaultFonts = [NSMutableDictionary dictionaryWithContentsOfFile:path];
         }
+        if (self.customDefaultFontNames) {
+            [tempDefaultFonts addEntriesFromDictionary:self.customDefaultFontNames];
+        }
+        _defaultFontsDictionary = [tempDefaultFonts copy];
     }
-    return defaultFontsDictionary;
+    return _defaultFontsDictionary;
 }
 
-+ (NSString *)defaultFontNameForFamilyName:(NSString *)familyName {
+- (NSString *)defaultFontNameForFamilyName:(NSString *)familyName {
     return [self.defaultFontsDictionary objectForKey:familyName];
+}
+
+- (void)setCustomDefaultFontNames:(NSDictionary *)customDefaultFontNames {
+    _defaultFontsDictionary = nil;
+    _customDefaultFontNames = customDefaultFontNames;
+    [self.tableView reloadData];
 }
 
 @end
