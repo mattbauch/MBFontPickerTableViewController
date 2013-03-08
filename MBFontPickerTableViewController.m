@@ -74,21 +74,7 @@
     return [self.fontNames count];
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-        
-        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(10, 14, 14, 14)];
-        imageView.tag = 2001;
-        [cell.contentView addSubview:imageView];
-        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(34, 0, 276, 43)];
-        label.tag = 2002;
-        label.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
-        [cell.contentView addSubview:label];
-    }
+- (void)configureCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
     UIImageView *imageView = (UIImageView *)[cell.contentView viewWithTag:2001];
     UILabel *label = (UILabel *)[cell.contentView viewWithTag:2002];
     
@@ -136,6 +122,23 @@
             imageView.image = nil;
         }
     }
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *CellIdentifier = @"Cell";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    if (!cell) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(10, 14, 14, 14)];
+        imageView.tag = 2001;
+        [cell.contentView addSubview:imageView];
+        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(34, 0, 276, 43)];
+        label.tag = 2002;
+        label.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
+        [cell.contentView addSubview:label];
+    }
+    [self configureCell:cell forRowAtIndexPath:indexPath];
     return cell;
 }
 
