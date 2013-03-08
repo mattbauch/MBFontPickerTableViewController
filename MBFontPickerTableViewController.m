@@ -210,6 +210,9 @@
     fontPicker.delegate = self.delegate;
     fontPicker.title = self.title;
     fontPicker.selectedFont = self.selectedFont;
+    fontPicker.customDefaultFontNames = self.customDefaultFontNames;
+    fontPicker.customDisplayFontNames = self.customDisplayFontNames;
+    
     fontPicker.contentSizeForViewInPopover = self.contentSizeForViewInPopover;
     [self.navigationController pushViewController:fontPicker animated:YES];
 }
@@ -218,26 +221,36 @@
 
 - (NSDictionary *)displayNamesDictionary {
     if (!_displayNamesDictionary) {
+        NSMutableDictionary *tempDisplayNames = [NSMutableDictionary dictionaryWithCapacity:200];
+
         NSString *path = [[NSBundle mainBundle] pathForResource:@"displayNameForFontName" ofType:@"plist"];
         if (path) {
             NSDictionary *displayNamesOnDisc = [NSDictionary dictionaryWithContentsOfFile:path];
             
-            NSMutableDictionary *temp = [NSMutableDictionary dictionaryWithCapacity:200];
+            
             for (NSString *fontFamilyName in displayNamesOnDisc) {
                 NSDictionary *fontFamilyDictionary = displayNamesOnDisc[fontFamilyName];
                 for (NSString *fontName in fontFamilyDictionary) {
-                    [temp setObject:fontFamilyDictionary[fontName] forKey:fontName];
+                    [tempDisplayNames setObject:fontFamilyDictionary[fontName] forKey:fontName];
                 }
             }
-            _displayNamesDictionary = [temp copy];
         }
+        if (self.customDisplayFontNames) {
+            [tempDisplayNames addEntriesFromDictionary:self.customDisplayFontNames];
+        }
+        _displayNamesDictionary = [tempDisplayNames copy];
     }
     return _displayNamesDictionary;
 }
 
-
 - (NSString *)displayNameForFontName:(NSString *)fontName {
     return [self.displayNamesDictionary objectForKey:fontName];;
+}
+
+- (void)setCustomDisplayFontNames:(NSDictionary *)customDisplayFontNames {
+    _displayNamesDictionary = nil;
+    _customDisplayFontNames = customDisplayFontNames;
+    [self.tableView reloadData];
 }
 
 #pragma mark - Main Font for Family Name
@@ -245,16 +258,28 @@
 
 - (NSDictionary *)defaultFontsDictionary {
     if (!_defaultFontsDictionary) {
+        NSMutableDictionary *tempDefaultFonts = [NSMutableDictionary dictionaryWithCapacity:100];
+        
         NSString *path = [[NSBundle mainBundle] pathForResource:@"defaultFontForFamilyName" ofType:@"plist"];
         if (path) {
-            _defaultFontsDictionary = [NSDictionary dictionaryWithContentsOfFile:path];
+            tempDefaultFonts = [NSMutableDictionary dictionaryWithContentsOfFile:path];
         }
+        if (self.customDefaultFontNames) {
+            [tempDefaultFonts addEntriesFromDictionary:self.customDefaultFontNames];
+        }
+        _defaultFontsDictionary = [tempDefaultFonts copy];
     }
     return _defaultFontsDictionary;
 }
 
 - (NSString *)defaultFontNameForFamilyName:(NSString *)familyName {
     return [self.defaultFontsDictionary objectForKey:familyName];
+}
+
+- (void)setCustomDefaultFontNames:(NSDictionary *)customDefaultFontNames {
+    _defaultFontsDictionary = nil;
+    _customDefaultFontNames = customDefaultFontNames;
+    [self.tableView reloadData];
 }
 
 @end

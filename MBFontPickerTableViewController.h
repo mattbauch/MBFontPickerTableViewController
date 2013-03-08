@@ -22,5 +22,9 @@
 
 @property (copy, nonatomic) NSString *selectedFont;
 
+@property (copy, nonatomic) NSDictionary *customDefaultFontNames;
+@property (copy, nonatomic) NSDictionary *customDisplayFontNames;
+
+
 - (NSString *)displayNameForFontName:(NSString *)fontName;
 @end
