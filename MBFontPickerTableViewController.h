@@ -25,6 +25,7 @@
 @property (copy, nonatomic) NSDictionary *customDefaultFontNames;
 @property (copy, nonatomic) NSDictionary *customDisplayFontNames;
 
+@property (assign, nonatomic) BOOL scrollToFontWhenViewWillAppear;
 
 - (NSString *)displayNameForFontName:(NSString *)fontName;
 @end

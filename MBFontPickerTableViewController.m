@@ -34,21 +34,24 @@
     [super viewWillAppear:animated];
     [self.tableView reloadData];
     
-    NSIndexPath *selectedIndexPath = nil;
-    if (self.fontFamilyName) {
-        NSInteger index = [self.fontNames indexOfObject:self.selectedFont];
-        if (index != NSNotFound) {
-            selectedIndexPath = [NSIndexPath indexPathForRow:index inSection:0];
+    if (self.scrollToFontWhenViewWillAppear) {
+        NSIndexPath *selectedIndexPath = nil;
+        if (self.fontFamilyName) {
+            NSInteger index = [self.fontNames indexOfObject:self.selectedFont];
+            if (index != NSNotFound) {
+                selectedIndexPath = [NSIndexPath indexPathForRow:index inSection:0];
+            }
         }
-    }
-    else {
-        NSInteger index = [self.fontNames indexOfObject:self.selectedFontFamily];
-        if (index != NSNotFound) {
-            selectedIndexPath = [NSIndexPath indexPathForRow:index inSection:0];
+        else {
+            NSInteger index = [self.fontNames indexOfObject:self.selectedFontFamily];
+            if (index != NSNotFound) {
+                selectedIndexPath = [NSIndexPath indexPathForRow:index inSection:0];
+            }
         }
-    }
-    if (selectedIndexPath) {
-        [self.tableView scrollToRowAtIndexPath:selectedIndexPath atScrollPosition:UITableViewScrollPositionMiddle animated:animated];
+        if (selectedIndexPath) {
+            [self.tableView scrollToRowAtIndexPath:selectedIndexPath atScrollPosition:UITableViewScrollPositionMiddle animated:animated];
+        }
+        self.scrollToFontWhenViewWillAppear = NO;
     }
 }
 
