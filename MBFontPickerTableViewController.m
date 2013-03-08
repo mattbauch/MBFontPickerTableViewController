@@ -182,6 +182,10 @@
     else {
         fontFamilyName = self.fontNames[indexPath.row];
         fontName = [self defaultFontNameForFamilyName:fontFamilyName];
+        if (!fontName) {
+            // if there is no default font just use the first font that UIFont gives us
+            fontName = [UIFont fontNamesForFamilyName:fontFamilyName][0];
+        }
         NSInteger index = [self.fontNames indexOfObject:self.selectedFontFamily];
         if (index != NSNotFound) {
             oldIndexPath = [NSIndexPath indexPathForRow:index inSection:0];
