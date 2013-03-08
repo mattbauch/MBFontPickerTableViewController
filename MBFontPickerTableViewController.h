@@ -27,5 +27,6 @@
 
 @property (assign, nonatomic) BOOL scrollToFontWhenViewWillAppear;
 
++ (NSString *)displayNameForFontName:(NSString *)fontName customFontList:(NSDictionary *)customFontList;
 - (NSString *)displayNameForFontName:(NSString *)fontName;
 @end
